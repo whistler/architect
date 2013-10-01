@@ -11,7 +11,7 @@ This gem is current under development.
 
     $ architect class_diagram.yuml [-o output.png] [--watch | -w]
     
-    For what should be in the input file check out yUML samples above.
+For what should be in the input file check out yUML samples above.
 
 ## Contributing
 
