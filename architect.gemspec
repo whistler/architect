@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Architect::VERSION
   spec.authors       = ["Ibrahim Muhammad"]
   spec.email         = ["ibrahim.mohammad@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Create UML class diagrams using yUML notation}
+  spec.summary       = %q{Create UML class diagrams using yUML notation}
   spec.homepage      = ""
   spec.license       = "MIT"
 
