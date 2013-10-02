@@ -8,7 +8,11 @@ describe Architect::Diagram do
   end
   
   it "can draw a class" do
-    @diagram.send("draw", "[User]")
+    @diagram.send("draw", "[User]", "class.png")
+  end
+  
+  it "can draw an association" do
+    @diagram.send("draw", "[User]-[Pet]", "association.png")
   end
   
 end
