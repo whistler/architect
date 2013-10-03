@@ -1,4 +1,6 @@
 require 'pry'
+require 'class'
+require 'association'
 module Architect
   
   ##
@@ -8,15 +10,13 @@ module Architect
     # [diagram] String containing yUML markup
     # Returns list of classes and list of associations in diagram
     def parse(diagram)
-      class_list = []
-      association_list = []
+      elements = []
       statements = get_statements(diagram)
       statements.each do |statement|
-        classes, association = parse_statement(statement)
-        class_list = class_list + classes
-        association_list = association_list + [edge] if association
+        new_elements = parse_statement(statement)
+        elements = elements + new_elements
       end
-      return class_list, association_list
+      return elements
     end
     
     # [diagram] String containing yUML markup
@@ -37,12 +37,17 @@ module Architect
     # [statement] String containing statement
     # Returns a list of classes markup and association markup in the statement
     def parse_statement(statement)
-      pattern = /\[(?<node1>.+)\](?<association>.*)?\[?(?<node2>.*)\]?/
+      pattern = /\[(?<class1>.+?)\](?<association>.+?)\[(?<class2>.+)\]/ 
       tokens = pattern.match(statement)
-      if tokens[:node2] != ""
-        return [tokens[:node1], tokens[:node2]], tokens[:association]
+      if tokens
+        class1 = Class.new(tokens[:class1])
+        class2 = Class.new(tokens[:class2])
+        association = Association.new(class1, class2, tokens[:association])
+        return [class1, class2, association]
       else
-        return [tokens[:node1]], nil
+        tokens = /\[(?<class1>.*)\]/.match(statement)
+        class1 = Class.new(tokens[:class1])
+        return [class1]
       end
     end
   end

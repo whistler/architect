@@ -17,10 +17,15 @@ describe Architect::Parser do
   end
   
   it "can extract a single class markup from statement" do
-    classes, association = @parser.parse_statement("[User]")
+    classes = @parser.parse_statement("[User]")
     classes.size.should == 1
-    classes[0] == "User"
-    association.should be_nil
+    classes[0].name == "User"
+  end
+  
+  it "can extract two class and a relationship" do
+    elements = @parser.parse_statement("[User]-[Cat]")
+    elements.size.should == 3
+    elements[0].name == "User"
   end
   
 end

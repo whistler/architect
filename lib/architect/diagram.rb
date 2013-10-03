@@ -9,10 +9,11 @@ module Architect
     # [diagram] string containing the markup of the diagram
     def draw(diagram, output = "class_diagram.png")
       parser = Architect::Parser.new
-      nodes, edges = parser.parse(diagram)
-      
+      elements = parser.parse(diagram)
       graph = GraphViz.new("ClassDiagram", type: "digraph")
-      graph.add_nodes(nodes)
+      elements.each do |element|
+        element.graph(graph)
+      end
       graph.output(png: output)
     end
     
