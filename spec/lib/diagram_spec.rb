@@ -15,4 +15,8 @@ describe Architect::Diagram do
     @diagram.send("draw", "[User]-[Pet]", "association.png")
   end
   
+  it "can draw a class with attributes and methods" do
+    @diagram.send("draw", "[User|name; age; height|login(); logout()]-[Pet]", "record.png")    
+  end
+  
 end

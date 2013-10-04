@@ -25,7 +25,7 @@ module Architect
     end
     
     def graph(g)
-      g.add_edges(@node1.name, @node2.name, @attributes)
+      g.add_edges(@node1.graphnode, @node2.graphnode, @attributes)
     end
     
   end

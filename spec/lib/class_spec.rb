@@ -8,4 +8,10 @@ describe Architect::Class do
     class_.name.should == "User"
   end
   
+  it "should parse attributes and methods" do
+    class_ = Architect::Class.new("User|+Firstname;+Lastname;+HashedPassword;-Salt|Login();Logout()")
+    class_.name.should == "User"
+    class_.markup.should == "{User|+Firstname\\n+Lastname\\n+HashedPassword\\n-Salt|Login()\\nLogout()}"
+  end
+  
 end
