@@ -19,4 +19,8 @@ describe Architect::Diagram do
     @diagram.send("draw", "[User|name; age; height|login(); logout()]-[Pet]", "record.png")    
   end
   
+  it "can draw a diagram with composition" do
+    @diagram.send("draw", "[Pond]<>0..1-0..*[Duck]", "composition.png")
+  end
+  
 end
