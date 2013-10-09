@@ -1,8 +1,7 @@
-require 'pry'
-require 'class'
-require 'association'
-module Architect
-  
+require_relative 'class'
+require_relative 'association'
+
+module Architect  
   ##
   # Parses yUML files
   class Parser

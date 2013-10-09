@@ -1,5 +1,5 @@
-require 'edge'
 require 'graphviz'
+require_relative 'edge'
 
 module Architect
   
@@ -18,7 +18,6 @@ module Architect
     def initialize(node1, node2, markup="->")
       super node1, node2
       @attributes = parse_markup(markup)
-      print @attributes
     end
     
     def parse_markup(markup)

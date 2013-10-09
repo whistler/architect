@@ -1,5 +1,5 @@
-require 'parser'
 require 'graphviz'
+require_relative 'parser'
 
 module Architect
   ##
@@ -7,14 +7,14 @@ module Architect
   class Diagram
     # Draw
     # [diagram] string containing the markup of the diagram
-    def draw(diagram, output = "class_diagram.png")
-      parser = Architect::Parser.new
+    def draw(diagram, output = "class_diagram.png", ext = 'png')
+      parser = Parser.new
       elements = parser.parse(diagram)
       graph = GraphViz.new("ClassDiagram", type: "digraph")
       elements.each do |element|
         element.graph(graph)
       end
-      graph.output(png: output)
+      graph.output(ext.to_sym => output)
     end
     
   end

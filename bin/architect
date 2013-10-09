@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+$: << "./lib"
+require 'architect/runner'
+
+if ARGV.count != 1
+  puts "usage: architect file"
+else
+  file = ARGV[0]
+  if File.exists?(file)
+    Architect::Runner.new(file, 'png')
+  else
+    puts file + " does not exist"
+  end
+end

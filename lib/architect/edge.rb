@@ -1,4 +1,4 @@
-require 'node'
+require_relative 'node'
 
 module Architect
   
@@ -8,8 +8,8 @@ module Architect
     attr_accessor :from, :to
     
     def initialize(node1, node2)
-      raise node1.to_s + " must be a Node" unless node1.kind_of? Architect::Node 
-      raise node2.to_s + " must be a Node" unless node2.kind_of? Architect::Node 
+      raise node1.to_s + " must be a Node" unless node1.kind_of? Node 
+      raise node2.to_s + " must be a Node" unless node2.kind_of? Node 
       @node1 = node1
       @node2 = node2
     end
