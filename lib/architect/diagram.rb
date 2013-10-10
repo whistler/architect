@@ -11,6 +11,8 @@ module Architect
       parser = Parser.new
       elements = parser.parse(diagram)
       graph = GraphViz.new("ClassDiagram", type: "digraph")
+      graph.node["fillcolor"] = "gray95"
+      graph.node["style"] = "filled"
       elements.each do |element|
         element.graph(graph)
       end

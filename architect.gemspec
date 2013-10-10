@@ -4,17 +4,17 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'architect/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "architect"
+  spec.name          = "uml_architect"
   spec.version       = Architect::VERSION
   spec.authors       = ["Ibrahim Muhammad"]
   spec.email         = ["ibrahim.mohammad@gmail.com"]
-  spec.description   = %q{Create UML class diagrams using yUML notation}
-  spec.summary       = %q{Create UML class diagrams using yUML notation}
-  spec.homepage      = ""
+  spec.description   = %q{Create UML Class Diagrams using text}
+  spec.summary       = %q{Create UML Class Diagrams using a simple yUML like notation}
+  spec.homepage      = "https://github.com/whistler/architect"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.executables   = ['architect']
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
