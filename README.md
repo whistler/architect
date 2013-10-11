@@ -9,9 +9,9 @@ Create UML Class diagrams using a [yUML](http://yuml.me/diagram/scruffy/class/sa
 
 ## Usage
 
-    $ architect file.txt
+    $ architect [file ...]
     
-This generates a output file with a png extension with the same base name as the
+This generates a output file with a svg extension with the same base name as the
 input file.
 
 ## Examples
