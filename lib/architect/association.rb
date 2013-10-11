@@ -25,7 +25,8 @@ module Architect
       left = matches[1]
       right = matches[2]
       {arrowhead: get_arrow(right), arrowtail: get_arrow(left), 
-       headlabel: strip_arrow(right), taillabel: strip_arrow(left),
+       headlabel: " " + strip_arrow(right) + " ", 
+       taillabel: " " + strip_arrow(left) + " ",
        dir: "both"}
     end
     
