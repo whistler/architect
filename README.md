@@ -18,24 +18,29 @@ input file.
 
 ### Simple Class
     [User]
-![Simple Class](https://raw.github.com/whistler/architect/master/examples/simple_class.svg)
+![Simple Class](http://whistler.github.io/architect/examples/simple_class.svg)
     
 ### Class with methods and attributes
     [User|+Firstname;+Lasname;-Password;|+Login();+Logout()]
-![Class with details](https://raw.github.com/whistler/architect/master/examples/class_with_details.svg)
+![Class with details](http://whistler.github.io/architect/examples/class_with_details.svg)
     
 ### Simple Association
     [User]-[Tweet]
-![Simple Association](https://raw.github.com/whistler/architect/master/examples/simple_association.svg)
+![Simple Association](http://whistler.github.io/architect/examples/simple_association.svg)
+
+### Inheritance
+    [Animal]<>-[Cat]
+    [Animal]<>-[Dog]
+![Inheritance](http://whistler.github.io/architect/examples/inheritance.svg)
     
 ### Composition and Aggregation
     [Car]++0..1-1[Carburetor]
     [Pong]+0..1-0..*[Duck]
-![Composition and Aggregation](https://raw.github.com/whistler/architect/master/examples/composition_and_aggregation.svg)
+![Composition and Aggregation](http://whistler.github.io/architect/examples/composition_and_aggregation.svg)
     
 ### Directional Association
     [Order]-billing >[Address], [Order]-shipping >[Address]
-![Directional Association](https://raw.github.com/whistler/architect/master/examples/directional_association.svg)
+![Directional Association](http://whistler.github.io/architect/examples/directional_association.svg)
     
 ## Contributing
 
