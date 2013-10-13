@@ -2,6 +2,7 @@ require 'architect/diagram'
 
 module Architect
   
+  # Draws a diagram from a file
   class Runner
     
     def initialize(file, ext)

@@ -10,12 +10,13 @@ describe Architect::Association do
   end
   
   it "parses simple association" do
-    @association.attributes[:arrowhead].should == "none"
+    attributes = @association.instance_eval("@attributes")
+    attributes[:arrowhead].should == "none"
   end
   
   it "parses association markup" do
     dot = {arrowhead: "vee", arrowtail: "odiamond", 
-     headlabel: "n", taillabel: "1", dir: "both"}
+     headlabel: " n ", taillabel: " 1 ", dir: "both"}
     @association.parse_markup("<>1-n>").should == dot
   end
   
@@ -24,7 +25,7 @@ describe Architect::Association do
   end
   
   it "strips arrows from strings" do
-    @association.strip_arrow(">1").should == "1"
+    @association.get_label(">1").should == "1"
   end
   
 end

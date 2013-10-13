@@ -2,8 +2,8 @@ require_relative 'node'
 
 module Architect
   
+  # Class in a class diagram
   class Class < Architect::Node
-    
     attr_accessor :graphnode, :markup
     
     def initialize(markup)
@@ -21,6 +21,7 @@ module Architect
       return "{" + markup.gsub(";", "\\n") + "}"
     end
     
+    # Add class to Graphviz
     def graph(g)
       @graphnode = g.add_nodes(@markup, @style)
     end

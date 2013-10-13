@@ -1,6 +1,5 @@
 module Architect
   
-  ##
   # Generic class to create a graph node
   class Node 
     

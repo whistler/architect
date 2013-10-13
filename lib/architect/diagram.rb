@@ -2,9 +2,10 @@ require 'graphviz'
 require_relative 'parser'
 
 module Architect
-  ##
+
   # Diagram is the base class for generating any diagram. 
   class Diagram
+    
     # Draw
     # [diagram] string containing the markup of the diagram
     def draw(diagram, output = "class_diagram.svg", ext = 'svg')
