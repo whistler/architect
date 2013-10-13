@@ -1,2 +1,2 @@
-[Animal]<>-[Cat]
-[Animal]<>-[Dog]
+[Animal]^-[Cat]
+[Animal]^-[Dog]

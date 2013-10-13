@@ -2,7 +2,7 @@ require_relative 'class'
 require_relative 'association'
 
 module Architect  
-  ##
+  
   # Parses yUML files
   class Parser
     

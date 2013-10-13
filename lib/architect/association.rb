@@ -11,7 +11,8 @@ module Architect
       "+"  => "odiamond",
       "++" => "diamond",
       ""   => "none",
-      ">"  => "vee"
+      ">"  => "vee",
+      "^"  => "empty"
     }
     
     def initialize(node1, node2, markup="->")
@@ -20,18 +21,20 @@ module Architect
     end
     
     def parse_markup(markup)
-      matches = /(.*)-(.*)/.match(markup)
+      matches = /(.*)-\.-(.*)/.match(markup)
+      matches = /(.*)-(.*)/.match(markup) if matches == nil
       left = matches[1]
       right = matches[2]
+      style = get_linestyle(markup)
       {arrowhead: get_arrow(right), arrowtail: get_arrow(left), 
        headlabel: " " + get_label(right) + " ", 
        taillabel: " " + get_label(left) + " ",
-       dir: "both"}
+       dir: "both", style: style}
     end
     
     # Return the type of arrow contained in the markup
     def get_arrow(string)
-      tokens = /([<>+]+)/.match(string)
+      tokens = /([<>+\^]+)/.match(string)
       if tokens == nil
         return "none"
       else
@@ -46,6 +49,14 @@ module Architect
         string = string.gsub(arrow, "")
       end
       return string
+    end
+    
+    def get_linestyle(string)
+      if /-\.-/.match(string) == nil
+        return "solid"
+      else
+        return "dashed"
+      end
     end
     
     # Add associations to Graphviz

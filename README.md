@@ -29,8 +29,8 @@ input file.
 ![Simple Association](http://whistler.github.io/architect/examples/simple_association.svg)
 
 ### Inheritance
-    [Animal]<>-[Cat]
-    [Animal]<>-[Dog]
+    [Animal]^-[Cat]
+    [Animal]^-[Dog]
 ![Inheritance](http://whistler.github.io/architect/examples/inheritance.svg)
     
 ### Composition and Aggregation
@@ -41,7 +41,11 @@ input file.
 ### Directional Association
     [Order]-billing >[Address], [Order]-shipping >[Address]
 ![Directional Association](http://whistler.github.io/architect/examples/directional_association.svg)
-    
+
+### Dependency
+    [REST]uses-.->[HTTP]
+![Dependency](http://whistler.github.io/architect/examples/dependency.svg)
+
 ## Contributing
 
 1. Fork it

@@ -16,7 +16,7 @@ describe Architect::Association do
   
   it "parses association markup" do
     dot = {arrowhead: "vee", arrowtail: "odiamond", 
-     headlabel: " n ", taillabel: " 1 ", dir: "both"}
+     headlabel: " n ", taillabel: " 1 ", dir: "both", style: "solid"}
     @association.parse_markup("<>1-n>").should == dot
   end
   
@@ -26,6 +26,11 @@ describe Architect::Association do
   
   it "strips arrows from strings" do
     @association.get_label(">1").should == "1"
+  end
+  
+  it "can draw dashed and solid lines" do
+    @association.get_linestyle("-").should == "solid"
+    @association.get_linestyle("-.-").should == "dashed"
   end
   
 end
