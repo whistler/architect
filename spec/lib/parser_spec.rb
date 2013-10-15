@@ -28,4 +28,9 @@ describe Architect::Parser do
     elements[0].name == "User"
   end
   
+  it "can parse a note" do
+    note = @parser.parse_statement("[Note: Hello]").first
+    note.class == Architect::Note
+  end
+  
 end

@@ -1,4 +1,5 @@
 require_relative 'class'
+require_relative 'note'
 require_relative 'association'
 
 module Architect  
@@ -36,18 +37,29 @@ module Architect
     # [statement] String containing statement
     # Returns a list of classes markup and association markup in the statement
     def parse_statement(statement)
-      pattern = /\[(?<class1>.+?)\](?<association>.+?)\[(?<class2>.+)\]/ 
+      pattern = /\[(?<node1>.+?)\](?<association>.+?)\[(?<node2>.+)\]/ 
       tokens = pattern.match(statement)
       if tokens
-        class1 = Class.new(tokens[:class1])
-        class2 = Class.new(tokens[:class2])
-        association = Association.new(class1, class2, tokens[:association])
-        return [class1, class2, association]
+        node1 = get_node(tokens[:node1])
+        node2 = get_node(tokens[:node2])
+        association = Association.new(node1, node2, tokens[:association])
+        return [node1, node2, association]
       else
-        tokens = /\[(?<class1>.*)\]/.match(statement)
-        class1 = Class.new(tokens[:class1])
-        return [class1]
+        tokens = /\[(?<node1>.*)\]/.match(statement)
+        node1 = get_node(tokens[:node1])
+        return [node1]
       end
     end
+    
+    # [markup] string containing content inside square brackets
+    # Returns Note or Class
+    def get_node(markup)
+      if /^note/i.match(markup) != nil
+        return Note.new(markup)
+      else
+        return Class.new(markup)
+      end
+    end
+    
   end
 end

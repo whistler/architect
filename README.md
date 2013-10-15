@@ -44,7 +44,12 @@ input file.
 
 ### Dependency
     [REST]uses-.->[HTTP]
-![Dependency](http://whistler.github.io/architect/examples/dependency.svg)
+![Dependency](http://whistler.github.io/architect/examples/dependancy.svg)
+
+### Notes
+    [note: this is a note]
+    [note: This is a note about user]-.-[User]
+![Notes](http://whistler.github.io/architect/examples/notes.svg)
 
 ## Contributing
 
